@@ -5,12 +5,18 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\InstallController;
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+/*
+|--------------------------------------------------------------------------
+| Installation Check Middleware
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['check.installation'])->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('dashboard');
+    });
 
-Route::middleware(['web'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Settings Routes
@@ -61,4 +67,21 @@ Route::middleware(['web'])->group(function () {
         ->name('documents.pdf.download');
     Route::post('/documents/{document}/pdf/regenerate', [DocumentController::class, 'regeneratePdf'])
         ->name('documents.pdf.regenerate');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Installation Routes (No authentication required)
+|--------------------------------------------------------------------------
+*/
+Route::prefix('install')->name('install.')->group(function () {
+    Route::get('/', [InstallController::class, 'index'])->name('index');
+    Route::get('/welcome', [InstallController::class, 'welcome'])->name('welcome');
+    Route::get('/requirements', [InstallController::class, 'requirements'])->name('requirements');
+    Route::get('/permissions', [InstallController::class, 'permissions'])->name('permissions');
+    Route::get('/database', [InstallController::class, 'database'])->name('database');
+    Route::post('/database/verify', [InstallController::class, 'verifyDatabase'])->name('database.verify');
+    Route::get('/administrator', [InstallController::class, 'administrator'])->name('administrator');
+    Route::post('/install', [InstallController::class, 'install'])->name('process');
+    Route::get('/complete', [InstallController::class, 'complete'])->name('complete');
 });

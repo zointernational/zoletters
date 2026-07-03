@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2025-07-03
+
+### Changed
+- **Laravel Installation Wizard**: Complete rewrite using proper Laravel architecture
+  - Uses Laravel routes, controllers, middleware, Blade views
+  - No standalone PHP scripts
+  - CSRF protection on all forms
+  - Session management
+  - Validation
+  - No bypassing Laravel framework
+
+### Components
+- `InstallController` - Handles all installation steps
+- `InstallService` - Business logic for installation
+- `CheckInstallation` middleware - Protects routes until installed
+- Blade views for each step (welcome, requirements, permissions, database, administrator, complete)
+
+### Installation Steps
+1. Welcome screen
+2. System requirements check
+3. Folder permissions verification
+4. Database configuration with connection testing
+5. Administrator account creation
+6. Automatic installation (creates .env, runs migrations, creates admin)
+7. Installation complete
+
+### Security
+- All routes protected by middleware until installation complete
+- Database connection verification
+- Password confirmation required
+- CSRF token on all forms
+- Secure session handling
+
+---
+
 ## [1.3.0] - 2025-07-03
 
 ### Added
