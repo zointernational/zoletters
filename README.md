@@ -1,7 +1,7 @@
 # ZO Letters
 
 **Professional Document Automation & Mail Merge Platform**
-**Version: 1.1.0**
+**Version: 1.2.0**
 
 ZO Letters is a Laravel-based application for managing document templates and creating professional letters with customizable letterheads and formatting.
 
@@ -23,6 +23,18 @@ ZO Letters is a Laravel-based application for managing document templates and cr
 - **Auto-save**: PDFs stored automatically in storage
 - **Smart Caching**: Only regenerates PDF when document changes
 - **Metadata**: Title, Author, Subject, Keywords, Creator embedded
+
+### Phase 3 - Production Ready
+- **Letter Preview**: Professional preview page before PDF generation
+- **Print Functionality**: Browser print support with proper CSS
+- **Document Status**: Draft, Final, Printed status tracking
+- **Advanced Search**: Search by reference, recipient, subject, date
+- **Filters**: Filter by status, template, date range
+- **Archive/Restore**: Soft delete with restore capability
+- **Duplicate Letter**: Create copy with new reference number
+- **Dashboard Improvements**: Drafts, recent, quick actions
+- **Application Settings**: Company info, reference prefix, defaults
+- **Soft Deletes**: Archive instead of permanent delete
 
 ## Requirements
 

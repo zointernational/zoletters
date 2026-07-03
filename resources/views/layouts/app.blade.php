@@ -152,6 +152,11 @@
                                 <i class="bi bi-file-earmark"></i> Documents
                             </a>
                         </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link" href="{{ route('settings.index') }}">
+                                <i class="bi bi-gear"></i> Settings
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
