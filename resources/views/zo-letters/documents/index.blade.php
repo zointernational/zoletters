@@ -62,6 +62,7 @@
                             <th>Template</th>
                             <th>Recipient</th>
                             <th>Subject</th>
+                            <th>PDF</th>
                             <th>Created</th>
                             <th class="text-end">Actions</th>
                         </tr>
@@ -75,12 +76,27 @@
                             <td>{{ $document->template->name ?? 'N/A' }}</td>
                             <td>{{ Str::limit($document->recipient_name, 30) }}</td>
                             <td>{{ Str::limit($document->subject, 40) }}</td>
+                            <td>
+                                @if($document->pdf_file)
+                                    <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Ready</span>
+                                @else
+                                    <span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split me-1"></i>Pending</span>
+                                @endif
+                            </td>
                             <td>{{ $document->created_at->format('M d, Y') }}</td>
                             <td class="text-end">
                                 <div class="btn-group btn-group-sm">
                                     <a href="{{ route('documents.show', $document) }}" class="btn btn-outline-secondary" title="View">
                                         <i class="bi bi-eye"></i>
                                     </a>
+                                    @if($document->template)
+                                        <a href="{{ route('documents.pdf.preview', $document) }}" target="_blank" class="btn btn-outline-info" title="Preview PDF">
+                                            <i class="bi bi-file-pdf"></i>
+                                        </a>
+                                        <a href="{{ route('documents.pdf.download', $document) }}" class="btn btn-outline-success" title="Download PDF">
+                                            <i class="bi bi-download"></i>
+                                        </a>
+                                    @endif
                                     <a href="{{ route('documents.edit', $document) }}" class="btn btn-outline-secondary" title="Edit">
                                         <i class="bi bi-pencil"></i>
                                     </a>
