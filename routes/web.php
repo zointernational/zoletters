@@ -33,4 +33,12 @@ Route::middleware(['web'])->group(function () {
         'update' => 'documents.update',
         'destroy' => 'documents.destroy',
     ]);
+
+    // PDF Routes
+    Route::get('/documents/{document}/pdf/preview', [DocumentController::class, 'previewPdf'])
+        ->name('documents.pdf.preview');
+    Route::get('/documents/{document}/pdf/download', [DocumentController::class, 'downloadPdf'])
+        ->name('documents.pdf.download');
+    Route::post('/documents/{document}/pdf/regenerate', [DocumentController::class, 'regeneratePdf'])
+        ->name('documents.pdf.regenerate');
 });

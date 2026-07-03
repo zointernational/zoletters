@@ -21,6 +21,10 @@ yarn-error.log
 /uploads/*
 !/uploads/.gitkeep
 
+# Documents PDFs (runtime files)
+/storage/app/documents/*.pdf
+!/storage/app/documents/.gitkeep
+
 # Storage (runtime files)
 /storage/logs/*
 !/storage/logs/.gitkeep

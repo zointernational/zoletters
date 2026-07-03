@@ -1,16 +1,28 @@
 # ZO Letters
 
 **Professional Document Automation & Mail Merge Platform**
+**Version: 1.1.0**
 
 ZO Letters is a Laravel-based application for managing document templates and creating professional letters with customizable letterheads and formatting.
 
-## Phase 1 Features
+## Features
 
+### Phase 1 - Core Features
 - **Template Management**: Create, edit, delete, and view document templates with customizable margins, page sizes, and orientation
 - **Document Management**: Create and manage documents with rich HTML content
 - **Rich Text Editor**: Integrated TinyMCE editor for document body content
 - **Auto Reference Numbers**: Automatically generated sequential reference numbers (ZOI/LTR/YYYY/000001)
 - **Dashboard**: Overview with template and document counts, recent documents
+
+### Phase 2 - PDF Generation
+- **PDF Generation Engine**: Convert documents to high-quality PDF
+- **Page Formats**: A4, A5, Letter, Legal with Portrait/Landscape support
+- **Template Integration**: Headers, footers, margins from templates
+- **Preview**: In-browser PDF preview before download
+- **Download**: Print-ready PDFs with selectable/searchable text
+- **Auto-save**: PDFs stored automatically in storage
+- **Smart Caching**: Only regenerates PDF when document changes
+- **Metadata**: Title, Author, Subject, Keywords, Creator embedded
 
 ## Requirements
 
@@ -104,6 +116,17 @@ Navigate to your domain to access the application.
 - Recipient name and address
 - Subject
 - Body (rich HTML content)
+- PDF status (Ready/Pending)
+
+### PDF Features
+- **Preview**: View PDF in browser before downloading
+- **Download**: Generate high-quality print-ready PDF
+- **Regenerate**: Force regenerate PDF when needed
+- **Auto-generation**: PDFs created automatically on document save
+- **Smart Caching**: Reuses existing PDF unless content changed
+- **Multi-page Support**: Automatic page breaks for long documents
+- **Header/Footer**: Template header and footer images included
+- **Unicode Support**: Proper character encoding for international text
 
 ## Security
 
