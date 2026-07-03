@@ -1,9 +1,19 @@
 # ZO Letters
 
 **Professional Document Automation & Mail Merge Platform**
-**Version: 1.2.0**
+**Version: 1.3.0**
 
 ZO Letters is a Laravel-based application for managing document templates and creating professional letters with customizable letterheads and formatting.
+
+## Quick Installation (Web Installer)
+
+1. Upload all files to your web server
+2. Set `public` folder as document root
+3. Visit your domain in a browser
+4. Follow the installation wizard
+5. Login with your admin credentials
+
+That's it! No terminal commands required.
 
 ## Features
 
