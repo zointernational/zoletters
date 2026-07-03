@@ -13,12 +13,20 @@ class DashboardController extends Controller
         $stats = [
             'total_templates' => Template::count(),
             'total_documents' => Document::count(),
+            'draft_count' => Document::drafts()->count(),
+            'final_count' => Document::final()->count(),
+            'printed_count' => Document::printed()->count(),
         ];
 
         $recentDocuments = Document::with('template')
             ->recent(5)
             ->get();
 
-        return view('dashboard.index', compact('stats', 'recentDocuments'));
+        $draftDocuments = Document::with('template')
+            ->drafts()
+            ->recent(5)
+            ->get();
+
+        return view('dashboard.index', compact('stats', 'recentDocuments', 'draftDocuments'));
     }
 }
